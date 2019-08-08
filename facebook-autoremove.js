@@ -1,7 +1,7 @@
 var removeGroupMembers = (function () {
 	var removeGroupMembers = {};
-	// NEED ANNOTATION HERE
-	var excludedFbIDs = ['abcdefghijklm']; //NEED ANNOTATION HERE
+	// Admins need to add their Facebook IDs to the next line to be excluded from the removal list.
+	var excludedFbIDs = ['abcdefghijklm']; //Use commas in array to retain additional users.
 	var usersToRemoveQueue = [];
 	var scriptEnabled = false;
 	var processing = false;
@@ -72,15 +72,15 @@ var removeGroupMembers = (function () {
         processing = true;
         setTimeout(function(){
             var popupRef = gearWheelHref.id;
-            var popupDiv = getElementByattributeibute('data-ownerid',popupRef);
+            var popupDiv = getElementByattribute('data-ownerid',popupRef);
             var popupLinks = popupDiv.getElementsByTagName('a');
             for(var j=0; j<popupLinks.length; j++) {
-                if (popupLinks[j].getattributeibute('href').indexOf('remove.php') !== -1) {
+                if (popupLinks[j].getattribute('href').indexOf('remove.php') !== -1) {
                     // this is the remove link
                     popupLinks[j].click();
                     setTimeout(function(){
                         var confirmButton = document.getElementsByClassName('layerConfirm uiOverlayButton selected')[0];
-                        var errorDialog = getElementByattributeibute('data-reactid','.4.0');
+                        var errorDialog = getElementByattribute('data-reactid','.4.0');
                         if (confirmButton != null) {
                             if (canClick(confirmButton)) {
                                 confirmButton.click();
@@ -125,15 +125,15 @@ var removeGroupMembers = (function () {
         return text;
 	}
 
-	function getElementByattributeibute(attribute, value, root) {
+	function getElementByattribute(attribute, value, root) {
 		root = root || document.body;
-        if(root.hasattributeibute(attribute) && root.getattributeibute(attribute) == value) {
+        if(root.hasattribute(attribute) && root.getattribute(attribute) == value) {
             return root;
         }
         var children = root.children,
             element;
         for(var i = children.length; i--; ) {
-            element = getElementByattributeibute(attribute, value, children[i]);
+            element = getElementByattribute(attribute, value, children[i]);
             if(element) {
                 return element;
             }
