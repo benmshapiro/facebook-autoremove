@@ -1,7 +1,7 @@
 var removeGroupMembers = (function () {
 	var removeGroupMembers = {};
 	// Admins need to add their Facebook IDs to the next line to be excluded from the removal list.
-	var excludedFbIDs = ['abcdefghijklm']; //Use commas in array to retain additional users.
+	var excludedFbIDs = ['FbIDNumberHere']; //Use commas in array to retain additional users.
 	var usersToRemoveQueue = [];
 	var scriptEnabled = false;
 	var processing = false;
